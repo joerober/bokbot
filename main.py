@@ -1,6 +1,15 @@
 #!/usr/bin/env python3 
 
-FILE='books/frankenstein.txt'
+#FILE=<path_to_file> # TODO: cmd line argument
+
+def categorize_file(filename):
+    get_category = lambda extension: {
+        ".txt": "Text",
+        ".docx": "Document",
+        ".py": "Code",
+    }.get(extension, "Unknown")
+
+    return get_category(filename[filename.rfind(".") :])
 
 def count_words(words): 
     all_words=words.split() 
